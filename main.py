@@ -1,51 +1,48 @@
 import streamlit as st
+from pages import upload_gds, adjuster_questions, rrt_zap, final_demand, escalation
 
-# Import each section as a module
-import 1_Upload_and_GDS as upload_gds
-import 2_Adjuster_Questions as adjuster_questions
-import 3_RRT_and_Zap as rrt_zap
-import 4_Final_Demand_Prophet as final_demand
-import 5_Human_Intervention as escalation
-
+# Set the page layout
 st.set_page_config(page_title="Genesis Guided Demo", layout="wide")
 
-# Initialize session state
+# Initialize session state variables if they do not exist
 if "page" not in st.session_state:
-    st.session_state.page = "upload"
-
-# Optional: adjuster profile randomization (set once)
+    st.session_state["page"] = "upload"
+if "claim_data" not in st.session_state:
+    st.session_state["claim_data"] = None
 if "adjuster_profile" not in st.session_state:
-    import random
-    st.session_state.adjuster_profile = random.choice([
-        "Fair Adjuster (Cooperative)",
-        "Tough Adjuster (Resistant)",
-        "Aggressive Adjuster (Non-Compliant)"
-    ])
+    st.session_state["adjuster_profile"] = None
+if "adjuster_summary" not in st.session_state:
+    st.session_state["adjuster_summary"] = {}
 
-# Header (Persistent)
-st.title("Genesis MVP: Guided Claim Audit")
-st.markdown(f"**Step:** {st.session_state.page.replace('_', ' ').title()}")
+# Mapping of sections to the functions to be called
+PAGES = {
+    "upload": upload_gds.show,
+    "adjuster": adjuster_questions.show,
+    "rrt": rrt_zap.show,
+    "final_demand": final_demand.show,
+    "escalation": escalation.show
+}
 
-# Page router
-if st.session_state.page == "upload":
-    upload_gds.show()
+# Display page based on current session state["page"]
+def navigate_to_next_page():
+    if st.session_state["page"] == "upload":
+        st.session_state["page"] = "adjuster"
+    elif st.session_state["page"] == "adjuster":
+        st.session_state["page"] = "rrt"
+    elif st.session_state["page"] == "rrt":
+        st.session_state["page"] = "final_demand"
+    elif st.session_state["page"] == "final_demand":
+        st.session_state["page"] = "escalation"
 
-elif st.session_state.page == "adjuster":
-    adjuster_questions.show()
+def show_current_page():
+    page = st.session_state["page"]
+    PAGES[page]()
 
-elif st.session_state.page == "rrt":
-    rrt_zap.show()
+# Start with the current page
+show_current_page()
 
-elif st.session_state.page == "final":
-    final_demand.show()
-
-elif st.session_state.page == "escalation":
-    escalation.show()
-
-# Navigation (Optional)
-st.sidebar.title("Navigation")
-st.sidebar.write("Guided navigation through Genesis modules")
-st.sidebar.markdown("---")
-if st.sidebar.button("🔄 Restart Demo"):
-    st.session_state.clear()
-    st.experimental_rerun()
+# Add the "Next" button at the bottom of each page
+if st.session_state["page"] != "escalation":  # Prevent showing next button on last page
+    if st.button("Next ➡️"):
+        navigate_to_next_page()
+        st.experimental_rerun()
