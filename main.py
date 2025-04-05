@@ -4,15 +4,17 @@ from modules import upload_gds, adjuster_questions, rrt_zap, final_demand, escal
 # Set the page layout
 st.set_page_config(page_title="Genesis Guided Demo", layout="wide")
 
+# 🔒 TEMPORARY: Force app to reset to Section 1 every time for clean start
+st.session_state["page"] = "upload"
+
 # Initialize session state variables if they do not exist
-if "page" not in st.session_state:
-    st.session_state["page"] = "upload"
 if "claim_data" not in st.session_state:
     st.session_state["claim_data"] = None
 if "adjuster_profile" not in st.session_state:
     st.session_state["adjuster_profile"] = None
 if "adjuster_summary" not in st.session_state:
     st.session_state["adjuster_summary"] = {}
+
 
 # Mapping of sections to the functions to be called
 PAGES = {
