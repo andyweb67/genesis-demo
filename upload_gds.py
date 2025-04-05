@@ -1,4 +1,4 @@
-# 1_Upload_and_GDS.py
+# upload_gds.py
 
 import streamlit as st
 import pandas as pd
@@ -10,7 +10,16 @@ st.title("Step 1–2: Upload & Genesis Demand Summary (GDS)")
 
 # Initialize session state
 if 'claim_data' not in st.session_state:
-    st.session_state.claim_data = None
+    st.session_state["claim_data"] = None
+
+# Upload field
+uploaded_file = st.file_uploader("Upload extracted_demand.json", type="json")
+
+if uploaded_file:
+    st.session_state["claim_data"] = json.load(uploaded_file)
+    st.success("✅ Claim data successfully loaded!")
+    st.write(st.session_state["claim_data"])  # Optional: show it to confirm
+
 
 st.markdown("""
 > **Opening Statement to Adjusters:**  
