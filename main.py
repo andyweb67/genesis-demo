@@ -11,11 +11,15 @@ st.set_page_config(page_title="Genesis Guided Demo", layout="wide")
 # 🧠 DEBUG: Print current session state on every launch
 st.write("🧠 SESSION STATE AT LAUNCH:", dict(st.session_state))
 
-# 🔒 FORCE: Reset all key session values for clean startup
-st.session_state["page"] = "upload"
-st.session_state["claim_data"] = "🔐 test_claim"
-st.session_state["adjuster_profile"] = "🔐 test_profile"
-st.session_state["adjuster_summary"] = {"status": "initial"}
+# 🔄 Initialize session state only if missing
+if "page" not in st.session_state:
+    st.session_state["page"] = "upload"
+if "claim_data" not in st.session_state:
+    st.session_state["claim_data"] = None
+if "adjuster_profile" not in st.session_state:
+    st.session_state["adjuster_profile"] = None
+if "adjuster_summary" not in st.session_state:
+    st.session_state["adjuster_summary"] = {}
 
 # Mapping of sections to the functions to be called
 PAGES = {
