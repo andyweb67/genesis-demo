@@ -1,7 +1,11 @@
-# 5_Human_Intervention.py
+# 5_escalation.py
 
 import streamlit as st
 import datetime
+
+# 🚨 Confirm escalation.py is running as the main app
+st.title("🚨 This is escalation.py running as main")
+st.stop()
 
 st.title("Section 5 – Adjuster Non-Compliance Escalation")
 
