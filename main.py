@@ -1,5 +1,9 @@
 import streamlit as st
-from modules import upload_gds, adjuster_questions, rrt_zap, final_demand, escalation
+import upload_gds
+import adjuster_questions
+import rrt_zap
+import final_demand
+import escalation
 
 # Set the page layout
 st.set_page_config(page_title="Genesis Guided Demo", layout="wide")
