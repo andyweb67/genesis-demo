@@ -1,0 +1,34 @@
+{
+  "documents": [
+    {
+      "provider": "Injury Care Chiropractic",
+      "specialist": "Dr. Smith, D.C.",
+      "treatment_or_code": "M54.5 – Low back pain",
+      "page": "2–4"
+    },
+    {
+      "provider": "Kentucky Pain Associates",
+      "specialist": "Dr. Allen, M.D.",
+      "treatment_or_code": "S33.5 – Lumbar disc injury",
+      "page": "3–5"
+    },
+    {
+      "provider": "Auto RX Pharmacy",
+      "specialist": "Unavailable",
+      "treatment_or_code": "Prescription for Flexeril",
+      "page": "5"
+    },
+    {
+      "provider": "High Severity Assessment",
+      "specialist": "Dr. Ross, Orthopedic",
+      "treatment_or_code": "WPI Assessment 22%",
+      "page": "9"
+    },
+    {
+      "provider": "Pre-Existing Aggravation",
+      "specialist": "Not Provided",
+      "treatment_or_code": "Cervical strain",
+      "page": "10"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "reconciliation_review_table": [
+    {
+      "category": "Medical Bills",
+      "adjuster_value": 4500,
+      "genesis_value": null,
+      "discrepancy": "Missing data",
+      "zap_response": null
+    },
+    {
+      "category": "Wage Loss",
+      "adjuster_value": 1200,
+      "genesis_value": null,
+      "discrepancy": "Missing data",
+      "zap_response": null
+    },
+    {
+      "category": "Liability",
+      "adjuster_value": "Disputed - client at fault",
+      "genesis_value": null,
+      "discrepancy": "Missing data",
+      "zap_response": null
+    },
+    {
+      "category": "IME Status",
+      "adjuster_value": "No IME requested",
+      "genesis_value": null,
+      "discrepancy": "Missing data",
+      "zap_response": null
+    },
+    {
+      "category": "Pre-existing Conditions",
+      "adjuster_value": "Claimed pre-existing back pain",
+      "genesis_value": null,
+      "discrepancy": "Missing data",
+      "zap_response": null
+    }
+  ],
+  "pain_and_suffering_comparison": {
+    "adjuster_multiplier": 1.2,
+    "attorney_multiplier": null,
+    "genesis_benchmark": null,
+    "discrepancy": null,
+    "zap_response": null
+  }
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "trigger": "delay in treatment",
+    "response": "Delay in care does not invalidate injury claims. Courts routinely uphold compensation where causation is supported, even if treatment was not immediate. See: https://plaintiffmax.com/delay_in_treatment/"
+  },
+  {
+    "trigger": "manifesting injury",
+    "response": "Delayed-onset or manifesting injuries are medically recognized. Many soft-tissue and neurological injuries emerge after adrenaline fades. See: https://plaintiffmax.com/manifesting_injuries/"
+  },
+  {
+    "trigger": "use of software",
+    "response": "Claim evaluation software (e.g., Colossus, Claim IQ) may violate fiduciary duties in first-party claims by using undisclosed suppression algorithms. See: https://plaintiffmax.com/use-of-software/"
+  },
+  {
+    "trigger": "pre-existing condition",
+    "response": "Aggravation of pre-existing conditions is compensable when the accident is the legal cause of worsening symptoms. See: https://plaintiffmax.com/pre_existing_condition_aggravation/"
+  },
+  {
+    "trigger": "low speed impact",
+    "response": "Low-speed collisions can and do cause injury. Courts have rejected biomechanical defenses that ignore medical evidence. See: https://plaintiffmax.com/low_speed_impact/"
+  },
+  {
+    "trigger": "no vehicle damage",
+    "response": "Visible damage is not a prerequisite for injury. The force transmitted through vehicle frames can injure occupants without crushing body panels. See: https://plaintiffmax.com/low_speed_impact/"
+  },
+  {
+    "trigger": "ime contradiction",
+    "response": "IME opinions are often biased toward insurers and contradicted by treating physicians. Genesis shields medical evidence using documented assessments. See: https://plaintiffmax.com/ime-shielding/"
+  },
+  {
+    "trigger": "minimal treatment",
+    "response": "Minimal treatment does not equate to minimal injury. Many clients under-treat due to financial strain or insurance limitations. See: https://plaintiffmax.com/minimal_treatment/"
+  },
+  {
+    "trigger": "gap in care",
+    "response": "Gaps in treatment are often due to access, finances, or misdiagnosis. Causation remains valid when supported by medical documentation. See: https://plaintiffmax.com/delay_in_treatment/"
+  },
+  {
+    "trigger": "soft tissue only",
+    "response": "Soft tissue injuries are real, painful, and compensable. Insurers cannot arbitrarily downgrade claims based on injury type. See: https://plaintiffmax.com/soft_tissue_only/"
+  },
+  {
+    "trigger": "injury not serious",
+    "response": "Downplaying injury severity without medical justification violates ethical standards and undermines trust. See: https://plaintiffmax.com/downplaying_injury/"
+  },
+  {
+    "trigger": "excessive treatment",
+    "response": "Allegations of overtreatment must be backed by medical expert opinion, not insurer opinion. See: https://plaintiffmax.com/excessive_treatment/"
+  },
+  {
+    "trigger": "prior claim history",
+    "response": "Having a prior claim does not eliminate liability for new or aggravated injuries. See: https://plaintiffmax.com/prior_claims/"
+  },
+  {
+    "trigger": "subjective complaints",
+    "response": "Pain is subjective by nature. Dismissing it without proper evaluation is not a defensible claims practice. See: https://plaintiffmax.com/subjective_pain/"
+  }
+]

@@ -1,0 +1,110 @@
+{
+    "claim_id": "G-AS-310325",
+    "claimant_name": "Andrew Sutherland",
+    "claim_number": "466511141",
+    "date_of_loss": "17/10/2024",
+    "claim_type": "first party",
+    "state": "SC",
+    "pip_status": "N/A",
+    "insurer": "Geico",
+    "adjuster_name": "Mary Jones",
+    "adjuster_email": "maryjones@geicoclaims.com",
+    "initial_offer": "3500",
+    "attorney_name": "Benny Webber",
+    "law_firm": "Webber & Associates",
+    "liability_status": "Pending Adjuster Response",
+    "genesis_value_estimate": "62,500",
+    "attorney_demand_total": "62,500",
+    "gds_table": {
+        "medical_specials_total": {
+            "attorney":"15,000",
+            "genesis": "15,000",
+            "validation": "green tick",
+            "page": ""
+        },
+        "providers": [
+            {
+                "name": "Exacta Care",
+                "attorney": "5000",
+                "genesis": "5000",
+                "validation": "green tick",
+                "page": "5"
+            },
+            {
+                "name": "Real Chiropractic",
+                "attorney": "7000",
+                "genesis": "7000",
+                "validation": "green tick",
+                "page": "7"
+            },
+            {
+                "name": "Cannon Memorial Hospital",
+                "attorney": "3000",
+                "genesis": "3000",
+                "validation": "green tick",
+                "page": "6"
+            }
+        ],
+        "pain_and_suffering": {
+            "attorney": "45000",
+            "genesis": "450000",
+            "validation": "hist pns"
+        },
+        "future_medicals": {
+            "attorney": "0",
+            "genesis": "0",
+            "validation": "green tick"
+        },
+        "lost_wages": {
+            "attorney": "2500",
+            "genesis": "2500",
+            "validation": "green tick"
+        },
+        "mileage": {
+            "attorney": "0",
+            "genesis": "0",
+            "validation": "green tick"
+        },
+        "subtotal": {
+            "attorney": "62500",
+            "genesis": "62500"
+        },
+        "deductions": {
+            "attorney": "0",
+            "genesis": "0"
+        },
+        "total": {
+            "attorney": "62500",
+            "genesis": "62500"
+        }
+    },
+    "supporting_documents": [
+        {
+            "provider": "exacta care",
+            "provider_type": "dr john jones MD",
+            "treatment_icd": "v89.2",
+            "page": "12"
+        },
+        {
+            "provider": "real chiropractic",
+            "provider_type": "dr danny smith DC",
+            "treatment_icd": "g43.41",
+            "page": "9"
+        },
+        {
+            "provider": "cannon memorial hospital",
+            "provider_type": "emergency er",
+            "treatment_icd": "abc-10",
+            "page": "11"
+        }
+    ],
+    "liability_confirmation": {
+        "summary": "mick doe cited far failure to yield",
+        "investigating_officer": "jack copper",
+        "citations_issued": "yes",
+        "primary_cause": "failure to yield",
+        "crash_report_reference": "sc 2345678"
+    },
+    "adjuster_assertions": [],
+    "zap_responses": []
+}

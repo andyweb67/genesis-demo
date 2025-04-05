@@ -1,0 +1,118 @@
+{
+  "workflow": {
+    "steps": [
+      {
+        "title": "First-Party Duty Acknowledgment",
+        "details": {
+          "input_required": true,
+          "options": [
+            "Yes – I acknowledge fiduciary obligations in this first-party claim.",
+            "No – This claim is being handled with the same evaluation standards as a third-party liability claim."
+          ]
+        }
+      },
+      {
+        "title": "Liability Confirmation",
+        "details": {
+          "input_required": true,
+          "options": [
+            "I acknowledge this Liability Determination",
+            "I dispute this determination → Provide Justification & Documentation"
+          ]
+        }
+      },
+      {
+        "title": "IME Ordered",
+        "details": {
+          "input_required": true,
+          "options": ["Yes", "No"],
+          "note": "If Yes, specify IME type: In-Person or Remote"
+        }
+      },
+      {
+        "title": "Software Use Confirmation",
+        "details": {
+          "input_required": true,
+          "options": ["Yes", "No"]
+        }
+      },
+      {
+        "title": "Medical Specials Overview",
+        "details": {
+          "input_required": true,
+          "options": ["YES", "NO"]
+        }
+      },
+      {
+        "title": "Pain and Suffering Evaluation",
+        "details": {
+          "input_required": false,
+          "input_field": "Adjuster Input (Amount or Skip)"
+        }
+      },
+      {
+        "title": "Whole Person Impairment (WPI)",
+        "details": {
+          "conditional": true,
+          "input_required": false,
+          "input_fields": [
+            "Has WPI been assigned? (Yes/No)",
+            "If Yes, what %?",
+            "If Yes, what $ value?"
+          ]
+        }
+      },
+      {
+        "title": "Future Medicals",
+        "details": {
+          "conditional": true,
+          "input_required": false,
+          "input_fields": [
+            "Have you assigned a value?",
+            "If Yes, enter value"
+          ]
+        }
+      },
+      {
+        "title": "Aggravation of Pre-Existing Conditions",
+        "details": {
+          "conditional": true,
+          "input_required": false,
+          "input_fields": [
+            "Have you assigned a value?",
+            "If Yes, enter value"
+          ]
+        }
+      },
+      {
+        "title": "Mileage Reimbursement",
+        "details": {
+          "conditional": true,
+          "input_required": false,
+          "input_fields": [
+            "Have you included mileage?",
+            "If Yes, enter value"
+          ]
+        }
+      },
+      {
+        "title": "Lost Wages",
+        "details": {
+          "conditional": true,
+          "input_required": false,
+          "input_fields": [
+            "Have you included Lost Wages?",
+            "If Yes, enter value"
+          ]
+        }
+      },
+      {
+        "title": "Final Adjuster Comments",
+        "details": {
+          "input_required": false,
+          "input_field": "Are there additional disputes or concerns? If Yes, list them."
+        }
+      }
+    ]
+  }
+}

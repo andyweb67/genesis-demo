@@ -1,0 +1,6 @@
+{
+  "police_report": {
+    "liability_language": "The officer determined the defendant failed to yield at the intersection, resulting in a rear-end collision. No contributing factors were attributed to the claimant.",
+    "flagged_terms": ["failed to yield", "rear-end collision", "no contributing factors"]
+  }
+}

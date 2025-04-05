@@ -1,0 +1,30 @@
+{
+    "anchors": {
+        "providers": {
+            "P001": {
+                "name": "Provider A",
+                "specialist_type": "Orthopedics",
+                "bcn_npi": "1234567890",
+                "icd_10_code": "M16.5"
+            }
+        },
+        "categories": {
+            "C001": "Medical Specials"
+        }
+    },
+    "gds_table": [
+        {
+            "Category": "C001",
+            "Provider": "P001",
+            "Attorney's Demand": 15000,
+            "Genesis Data": 15000
+        }
+    ],
+    "supporting_docs_table": [
+        {
+            "Provider": "P001",
+            "page_ref": "2"
+        }
+    ],
+    "police_report": "Failure to yield"
+}

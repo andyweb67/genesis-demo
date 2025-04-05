@@ -1,0 +1,5 @@
+Claimant: Jane Doe
+Injuries: Cervical strain, concussion
+Medical bills: $14,000
+Lost wages: $2,500
+Adjuster offer: $3,000
