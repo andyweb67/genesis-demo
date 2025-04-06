@@ -21,36 +21,7 @@ if "adjuster_profile" not in st.session_state:
 if "adjuster_summary" not in st.session_state:
     st.session_state["adjuster_summary"] = {}
 
-# 🚦 Show only the current section/module
-if st.session_state["page"] == "upload":
-    upload_gds.show()
-elif st.session_state["page"] == "adjuster":
-    adjuster_questions.show()
-elif st.session_state["page"] == "rrt":
-    rrt_zap.show()
-elif st.session_state["page"] == "final_demand":
-    final_demand.show()
-elif st.session_state["page"] == "escalation":
-    escalation.show()
-
-# 🔀 Navigation logic to advance to the next section
-def navigate_to_next_page():
-    page_order = ["upload", "adjuster", "rrt", "final_demand", "escalation"]
-    current = st.session_state["page"]
-    if current in page_order:
-        idx = page_order.index(current)
-        if idx + 1 < len(page_order):
-            st.session_state["page"] = page_order[idx + 1]
-
-# ⏭️ Show "Next" button unless on final page
-if st.session_state["page"] != "escalation":
-    if st.button("Next ➡️"):
-        navigate_to_next_page()
-        st.experimental_rerun()
-
-
-
-# Mapping of sections to the functions to be called
+# 🔀 Mapping of pages to display functions
 PAGES = {
     "upload": upload_gds.show,
     "adjuster": adjuster_questions.show,
@@ -59,26 +30,31 @@ PAGES = {
     "escalation": escalation.show
 }
 
-# Display page based on current session state["page"]
+# 🔁 Navigate forward in order
 def navigate_to_next_page():
-    if st.session_state["page"] == "upload":
-        st.session_state["page"] = "adjuster"
-    elif st.session_state["page"] == "adjuster":
-        st.session_state["page"] = "rrt"
-    elif st.session_state["page"] == "rrt":
-        st.session_state["page"] = "final_demand"
-    elif st.session_state["page"] == "final_demand":
-        st.session_state["page"] = "escalation"
+    page_order = list(PAGES.keys())
+    current = st.session_state["page"]
+    if current in page_order:
+        idx = page_order.index(current)
+        if idx + 1 < len(page_order):
+            st.session_state["page"] = page_order[idx + 1]
 
+# 🔁 Show current page
 def show_current_page():
     page = st.session_state["page"]
     PAGES[page]()
 
-# Start with the current page
+# 🚦 Display the current module/page
 show_current_page()
 
-# Add the "Next" button at the bottom of each page
-if st.session_state["page"] != "escalation":  # Prevent showing next button on last page
-    if st.button("Next ➡️"):
-        navigate_to_next_page()
-        st.experimental_rerun()
+# 📍 Helper for Section 1 (upload) if no claim data yet
+if st.session_state["page"] == "upload" and not st.session_state.get("claim_data"):
+    st.info("Please upload your extracted_demand.json or simulate upload to continue.")
+
+# ⏭️ Next button only if valid to proceed
+if st.session_state["page"] != "escalation":
+    # Don't allow Next on upload page unless claim_data is set
+    if st.session_state["page"] != "upload" or st.session_state.get("claim_data"):
+        if st.button("Next ➡️"):
+            navigate_to_next_page()
+            st.experimental_rerun()
