@@ -9,32 +9,33 @@ import time
 st.title("Step 1–2: Upload & Genesis Demand Summary (GDS)")
 
 # Initialize session state
-if 'claim_data' not in st.session_state:
+if "claim_data" not in st.session_state:
     st.session_state["claim_data"] = None
 
-# Upload field
+# === Primary JSON Upload ===
 uploaded_file = st.file_uploader("Upload extracted_demand.json", type="json")
 
-if uploaded_file:
+if uploaded_file and not st.session_state["claim_data"]:
     st.session_state["claim_data"] = json.load(uploaded_file)
     st.success("✅ Claim data successfully loaded!")
-    st.write(st.session_state["claim_data"])  # Optional: show it to confirm
+    st.write(st.session_state["claim_data"])  # Optional preview
+    st.experimental_rerun()
 
-
+# === Opening Statement ===
 st.markdown("""
 > **Opening Statement to Adjusters:**  
 > This Genesis audit highlights undervaluation of the claim and enforces accountability. The claimant has provided full transparency through the Genesis Demand Summary (GDS) and supporting documents. Without a reciprocal breakdown of reductions or methodology, further negotiation would lack good faith. This will be documented and escalated if necessary.
 """)
 
-# Upload Section
+# === Simulated Package Upload (Demo Spinner) ===
 st.markdown("### Upload a Demand Package")
 col1, col2 = st.columns([2, 1])
 with col1:
-    uploaded_file = st.file_uploader("Choose a file to simulate", type=["pdf", "zip", "docx"])
+    sim_file = st.file_uploader("Choose a file to simulate", type=["pdf", "zip", "docx"])
 with col2:
     demo_trigger = st.button("▶ Click here to simulate upload")
 
-if uploaded_file or demo_trigger:
+if sim_file or demo_trigger:
     st.info("Genesis is extracting the claim package...")
 
     parse_steps = [
@@ -61,12 +62,12 @@ if uploaded_file or demo_trigger:
 
     if selected_file:
         with open(os.path.join(data_folder, selected_file)) as f:
-            st.session_state.claim_data = json.load(f)
+            st.session_state["claim_data"] = json.load(f)
 
-if st.session_state.claim_data:
-    claim_data = st.session_state.claim_data
+# === Display GDS Summary ===
+if st.session_state["claim_data"]:
+    claim_data = st.session_state["claim_data"]
 
-    # Claim Details Table
     st.subheader("Claim Details")
     st.markdown(f"""
     - **Claimant’s Name:** {claim_data['claimant_name']}  
@@ -83,7 +84,6 @@ if st.session_state.claim_data:
     - **Liability Status:** Pending Adjuster Response  
     """)
 
-    # GDS Table
     st.subheader("Genesis Demand Summary (GDS)")
     gds_rows = []
     ms = claim_data['gds_table']['medical_specials_total']
@@ -193,8 +193,6 @@ if st.session_state.claim_data:
     # Liability Narrative (Simulated)
     st.subheader("Liability Determination Summary")
     liability_text = claim_data.get("liability_determination", "Liability summary not provided in current file.")
-    st.markdown(f"""
-    > {liability_text}
-    """)
+    st.markdown(f"> {liability_text}")
 
     st.success("✅ Section 1 complete. You may now proceed to Section 2: Adjuster Questions.")

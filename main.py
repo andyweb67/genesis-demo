@@ -21,6 +21,35 @@ if "adjuster_profile" not in st.session_state:
 if "adjuster_summary" not in st.session_state:
     st.session_state["adjuster_summary"] = {}
 
+# 🚦 Show only the current section/module
+if st.session_state["page"] == "upload":
+    upload_gds.show()
+elif st.session_state["page"] == "adjuster":
+    adjuster_questions.show()
+elif st.session_state["page"] == "rrt":
+    rrt_zap.show()
+elif st.session_state["page"] == "final_demand":
+    final_demand.show()
+elif st.session_state["page"] == "escalation":
+    escalation.show()
+
+# 🔀 Navigation logic to advance to the next section
+def navigate_to_next_page():
+    page_order = ["upload", "adjuster", "rrt", "final_demand", "escalation"]
+    current = st.session_state["page"]
+    if current in page_order:
+        idx = page_order.index(current)
+        if idx + 1 < len(page_order):
+            st.session_state["page"] = page_order[idx + 1]
+
+# ⏭️ Show "Next" button unless on final page
+if st.session_state["page"] != "escalation":
+    if st.button("Next ➡️"):
+        navigate_to_next_page()
+        st.experimental_rerun()
+
+
+
 # Mapping of sections to the functions to be called
 PAGES = {
     "upload": upload_gds.show,
